@@ -56,8 +56,10 @@ def bestow_roger_wisdom(bot, msg):
     if passages:
         text = random.choice(passages)
         # Make sure first word is capitalized or so help me...
-        text[0].upper()
-        bot.reply("{text}".format(
+        first_letter = text[0].upper()
+        text = text[1:]
+        bot.reply("{capital_letter}{text}".format(
+            capital_letter=first_letter,
             text=text,
         ))
     else:
